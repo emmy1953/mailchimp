@@ -51,7 +51,7 @@ html,body{
     padding: 10px 20px ;
     border-radius: 40px;
     color: black;
-    border: none;
+    border: 1px solid black;
     background-color:  white; 
     transition: all 0.4s ease-in-out;
     
@@ -60,7 +60,7 @@ html,body{
     padding: 10px 20px ;
     border-radius: 40px;
     color: black;
-    border: none;
+    border: 1px solid black;
     background-color:  #fff200; 
     transition: all 0.4s ease-in-out;
     
@@ -230,7 +230,7 @@ html,body{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
-    width: 90%;
+    
     max-width: 1600px;
     margin: 40px auto;
 }
@@ -248,16 +248,54 @@ html,body{
     width: 100%;
     min-height: 450px;
     overflow: hidden;
-    trsnsition: all 0.4s ease-in-out;
+    /* trsnsition: all 0.4s ease-in-out; */
 }
 
+
+.card {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  transition: flex-grow .55s cubic-bezier(.22, .8, .24, 1),
+              opacity .35s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff280;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .55s cubic-bezier(.22, .8, .24, 1);
+  z-index: 0;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card:hover {
+  flex-grow: 2.2;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.recomendation-cards:hover .card:not(:hover) {
+  flex-grow: .6;
+  opacity: .55;
+}
 .card:hover{
-    transform: translateX(-10);
+    /* transform: translateX(-10);
     transform: scale(1.1);
   
   box-shadow: 0 8px 0 black;
   background-color: #fff200;
-  width: 100%;
+  width: 100%; */
 
 }
 .cardcontent{
@@ -984,6 +1022,7 @@ a { color: inherit; }
   text-decoration: none;
   padding: .85rem 1rem;
   border-radius: 999px;
+  border: 1px solid black;
   transition:0.7s;
 }
 .btn-yellow:hover { 
@@ -1294,7 +1333,7 @@ body {
 .footer-links a {
   color: #241c15;
   text-decoration: underline;
-  font-size: .95rem;
+  font-size: .65rem;
 }
 
 .footer-links a:hover { text-decoration-thickness: 2px; }
@@ -1347,7 +1386,7 @@ body {
 
 .fb-group {
   font-weight: 800;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   letter-spacing: .08em;
 }
 
@@ -1741,5 +1780,413 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+  }
+}
+/* The navbar is the positioning parent, so the dropdown spans its full width */
+.navbar {
+  position: relative;
+}
+
+/* Wrapper around the link + dropdown. Do NOT give it position: relative. */
+.nav-item {
+  display: inline-block;
+}
+
+/* Dropdown: hidden by default, sits right under the navbar */
+.nav-item > .mega {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0s linear 0.15s;
+}
+
+/* Show on hover or keyboard focus */
+.nav-item:hover > .mega,
+.nav-item:focus-within > .mega {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+.mega {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  width: 100%;
+  background: #fbfdff;
+  font-family: "Inter", Arial, sans-serif;
+  color: #241c15;
+  /* To use as a dropdown, add: position:absolute; top:100%; left:0; z-index:100;
+     and toggle it with display:none / display:grid */
+}
+
+.mega ul { list-style: none; margin: 0; padding: 0; }
+
+/* ---------- Main area ---------- */
+.mega__main {
+  padding: 40px 48px 48px 12%;
+}
+
+.mega__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.mega__title {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.15;
+}
+
+.mega__new {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.mega__arrow {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff000;
+  color: black;
+  transition: transform 0.15s ease;
+}
+.mega__new:hover .mega__arrow { transform: translateX(3px); }
+
+.mega__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+}
+
+/* Small bold uppercase headings */
+.mega__label {
+  margin: 0 0 20px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.mega__col li + li { margin-top: 8px; }
+
+.mega__col a {
+  display: inline-block;
+  padding: 8px 12px;
+  margin-left: -12px;
+  border-radius: 6px;
+  color: inherit;
+  font-size: 1.0625rem;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+/* Hover / focus highlight (the blue pill) */
+.mega__col a:hover,
+.mega__col a:focus-visible {
+  background: #c9d4f7;
+  outline: none;
+}
+
+/* Third column has no label, so push it down to line up with the others */
+.mega__col--nolabel { padding-top: 0; }
+
+/* ---------- Right sidebar ---------- */
+.mega__side {
+  padding: 40px 32px;
+  background: #dde2ef;
+}
+
+.mega__icons li + li { margin-top: 20px; }
+
+.mega__icons a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 0;
+  color: inherit;
+  font-size: 1.0625rem;
+  text-decoration: none;
+}
+.mega__icons a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.mega__icons svg {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  fill: none;
+  stroke: #3b3f5c;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mega__side .mega__label { margin: 48px 0 16px; }
+
+.mega__links li + li { margin-top: 8px; }
+.mega__links a {
+  display: block;
+  padding: 8px 0;
+  color: inherit;
+  font-size: 1.0625rem;
+  text-decoration: none;
+}
+.mega__links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- Smaller screens ---------- */
+@media (max-width: 1024px) {
+  .mega { grid-template-columns: 1fr; }
+  .mega__main { padding: 32px 6%; }
+  .mega__columns { grid-template-columns: 1fr 1fr; }
+  .mega__side { padding: 32px 6%; }
+}
+
+@media (max-width: 600px) {
+  .mega__top { flex-direction: column; align-items: flex-start; margin-bottom: 32px; }
+  .mega__columns { grid-template-columns: 1fr; }
+}
+/* ---------- Compact dropdown ---------- */
+.mega {
+  grid-template-columns: 1fr 260px;      /* narrower sidebar (was 340px) */
+}
+
+.mega__main {
+  padding: 24px 32px 28px 8%;            /* was 40px 48px 48px 12% */
+}
+
+.mega__top {
+  margin-bottom: 24px;                   /* was 48px */
+}
+
+.mega__title {
+  font-size: 1.5rem;                     /* was 2rem */
+}
+
+.mega__new {
+  font-size: 0.875rem;
+  gap: 8px;
+}
+
+.mega__arrow {
+  width: 34px;                           /* was 44px */
+  height: 34px;
+}
+.mega__arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.mega__columns {
+  gap: 20px;
+}
+
+.mega__label {
+  margin-bottom: 10px;
+  font-size: 0.75rem;
+}
+
+.mega__col li + li {
+  margin-top: 2px;                       /* was 8px */
+}
+
+.mega__col a {
+  padding: 5px 10px;                     /* was 8px 12px */
+  margin-left: -10px;
+  font-size: 0.9375rem;                  /* was 1.0625rem */
+}
+
+/* Sidebar */
+.mega__side {
+  padding: 24px 20px;
+}
+
+.mega__icons li + li {
+  margin-top: 8px;
+}
+
+.mega__icons a {
+  gap: 12px;
+  padding: 4px 0;
+  font-size: 0.9375rem;
+}
+
+.mega__icons svg {
+  width: 24px;
+  height: 24px;
+}
+
+.mega__side .mega__label {
+  margin: 24px 0 8px;
+}
+
+.mega__links a {
+  padding: 5px 0;
+  font-size: 0.9375rem;
+}
+.nav-item > .mega {
+  left: 50%;
+  right: auto;
+  width: 900px;
+  max-width: 100%;
+  transform: translate(-50%, -6px);
+}
+
+.nav-item:hover > .mega,
+.nav-item:focus-within > .mega {
+  transform: translate(-50%, 0);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 20px;
+  background: #f4f6f8;
+  color: #1f2733;
+  text-decoration: none;
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.3s ease,
+    box-shadow 0.4s ease;
+}
+
+.card__img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 14px;
+  transform-origin: center;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Hover: card turns yellow, lifts, moves and grows over its neighbours */
+.card:hover,
+.card:focus-visible {
+  z-index: 10;
+  background: #ffc20e;
+  transform: translate(-8px, -12px) scale(1.08);
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.18);
+  outline: none;
+}
+
+/* Hover: the picture gets bigger */
+.card:hover .card__img,
+.card:focus-visible .card__img {
+  transform: scale(1.6) rotate(-4deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card__img { transition: none; }
+}
+
+.nav-toggle {
+  display: none;
+}
+
+@media (max-width: 767.98px) {
+  .navbar {
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 12px 16px;
+  }
+
+  .navbar > a:first-child {
+    flex: 1 1 auto;
+    flex-basis: auto;
+    text-align: left;
+  }
+
+  .nav-toggle {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0;
+    border: 1px solid #231e15;
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #231e15;
+  }
+
+  .navbar:not(.is-open) > a:not(:first-child),
+  .navbar:not(.is-open) > .nav-item,
+  .navbar:not(.is-open) > .signupbtn {
+    display: none;
+  }
+
+  .navbar.is-open > a:not(:first-child),
+  .navbar.is-open > .nav-item,
+  .navbar.is-open > .signupbtn {
+    width: 100%;
+    flex: 1 0 100%;
+  }
+
+  .navbar.is-open > a:not(:first-child),
+  .navbar.is-open > .nav-item > .navh {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 8px;
+    text-align: left;
+  }
+
+  .navbar.is-open > .nav-item {
+    display: block;
+  }
+
+  .navbar.is-open > .signupbtn {
+    align-self: flex-start;
+    width: auto;
+    flex: 0 0 auto;
+  }
+
+  .nav-item > .mega {
+    position: static;
+    left: auto;
+    right: auto;
+    width: 100%;
+    max-width: none;
+    transform: none;
+  }
+
+  .nav-item:hover > .mega,
+  .nav-item:focus-within > .mega {
+    transform: none;
   }
 }
