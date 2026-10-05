@@ -1,0 +1,513 @@
+*{
+  
+  box-sizing: border-box;
+  font-family: "Google Sans", sans-serif;
+}
+html,body{
+    margin: 0px;
+  padding: 0px;
+}
+.body{
+    text-decoration: none;
+}
+.first{
+   
+    justify-content: center;
+    background-color: #231E15;
+    padding: 1%;
+    padding-top: 20px;
+}
+.secondbody{
+    font-family: google sans-serif;
+    color: #fafaf0;
+    margin-left: 32%;
+}
+.navbar{
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: sticky;
+    z-index: 1000;
+    font-size: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 5%;
+    position: fixed static;
+    background-color: #fafaf0;
+    text-decoration: none;
+   
+}
+.navbar a{
+    text-decoration: none;
+    color: black;
+}
+.navh:hover{
+    background-color: rgb(234, 232, 232);
+}
+
+.loginbtn{
+    padding: 10px 20px ;
+    border-radius: 40px;
+    color: black;
+    border: none;
+    background-color:  white; 
+    transition: all 0.4s ease-in-out;
+    
+}
+.signupbtn{
+    padding: 10px 20px ;
+    border-radius: 40px;
+    color: black;
+    border: none;
+    background-color:  #fff200; 
+    transition: all 0.4s ease-in-out;
+    
+}
+.loginbtn:hover{
+     transform: translateY(-5px);
+  box-shadow: 0 8px 0 black;
+ 
+}
+.signupbtn:hover{
+     transform: translateY(-5px);
+  box-shadow: 0 8px 0 black;
+ 
+}
+/* =========================
+   BODY
+========================= */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #241c15;
+}
+
+
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contact-section {
+    background-color: #f3f0ed;
+    min-height: 580px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    padding: 100px 9%;
+}
+
+.contact-content {
+    max-width: 600px;
+}
+
+.contact-content h1 {
+    font-family: Georgia, serif;
+    font-size: 65px;
+    font-weight: normal;
+    line-height: 1;
+    margin: 0 0 45px;
+}
+
+.contact-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+
+/* =========================
+   SELECT / FORM
+========================= */
+
+.contact-form {
+    padding-top: 45px;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 14px;
+    color: #6b625c;
+    margin-bottom: 10px;
+}
+
+.contact-form select {
+    width: 100%;
+    height: 65px;
+
+    padding: 0 18px;
+
+    background-color: white;
+    border: 1px solid #777;
+    border-radius: 3px;
+
+    font-size: 16px;
+    color: #333;
+
+    outline: none;
+}
+
+
+/* =========================
+   BOTTOM INFORMATION
+========================= */
+
+.info-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    padding: 90px 9%;
+
+    background-color: white;
+}
+
+.help-content h2,
+.address-content h2 {
+    font-family: Georgia, serif;
+    font-size: 38px;
+    font-weight: normal;
+    line-height: 1.2;
+
+    margin: 0 0 8px;
+}
+
+.help-content a {
+    color: #241c15;
+    font-size: 15px;
+}
+
+.help-content .abuse {
+    margin-top: 70px;
+}
+
+.address-content p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-top: 10px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .contact-section {
+        grid-template-columns: 1fr;
+        padding: 70px 7%;
+        gap: 30px;
+    }
+
+    .contact-content h1 {
+        font-size: 50px;
+    }
+
+    .contact-form {
+        padding-top: 10px;
+    }
+
+    .info-section {
+        grid-template-columns: 1fr;
+        padding: 70px 7%;
+        gap: 60px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .contact-section {
+        padding: 55px 25px;
+    }
+
+    .contact-content h1 {
+        font-size: 42px;
+    }
+
+    .contact-content p {
+        font-size: 16px;
+    }
+
+    .info-section {
+        padding: 55px 25px;
+    }
+
+    .help-content h2,
+    .address-content h2 {
+        font-size: 32px;
+    }
+}
+/* =========================
+   GENERAL
+========================= */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #241c15;
+}
+
+
+/* =========================
+   HELP / ADDRESS SECTION
+========================= */
+
+.help-section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+
+    padding: 90px 9%;
+    box-sizing: border-box;
+
+    background-color: #ffffff;
+}
+
+
+/* LEFT COLUMN */
+
+.help-column {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.help-item h2,
+.address-text h2 {
+    font-family: Georgia, serif;
+    font-size: 38px;
+    font-weight: normal;
+    line-height: 1.15;
+
+    margin: 0 0 8px;
+}
+
+.help-item a {
+    color: #241c15;
+    font-size: 15px;
+}
+
+
+/* RIGHT COLUMN */
+
+.address-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.address-text {
+    margin-bottom: 45px;
+}
+
+.address-text p {
+    font-size: 16px;
+    line-height: 1.5;
+
+    margin: 0;
+}
+
+
+/* BUILDING IMAGE */
+
+.address-column img {
+    width: 100%;
+    max-width: 600px;
+    height: 370px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    display: block;
+}
+
+
+/* =========================
+   INTUIT SECTION
+========================= */
+
+.intuit-section {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 40% 60%;
+
+    padding: 100px 9%;
+    box-sizing: border-box;
+
+    background-color: #ffffff;
+
+    min-height: 450px;
+}
+
+
+/* INTUIT LOGO SIDE */
+
+.intuit-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.intuit-brand h1 {
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 70px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin: 0 0 25px;
+
+    color: #2f5bea;
+}
+
+
+/* COMPANY LOGOS */
+
+.brands {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 18px;
+
+    font-size: 14px;
+}
+
+.turbotax {
+    color: #333;
+}
+
+.creditkarma {
+    color: #238b45;
+}
+
+.quickbooks {
+    color: #168b45;
+}
+
+.mailchimp {
+    color: #d8a21b;
+}
+
+
+/* RIGHT SIDE */
+
+.intuit-content {
+    padding-left: 70px;
+}
+
+.intuit-description {
+    max-width: 650px;
+}
+
+.intuit-description p {
+    font-family: Georgia, serif;
+
+    font-size: 28px;
+    line-height: 1.45;
+
+    margin: 0 0 70px;
+}
+
+
+/* LINKS */
+
+.intuit-links {
+    display: flex;
+    gap: 100px;
+}
+
+.intuit-links h2 {
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+    font-weight: normal;
+
+    margin: 0 0 8px;
+}
+
+.intuit-links a {
+    color: #241c15;
+    font-size: 14px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .help-section {
+        grid-template-columns: 1fr;
+        padding: 70px 7%;
+    }
+
+    .address-column img {
+        max-width: 100%;
+    }
+
+    .intuit-section {
+        grid-template-columns: 1fr;
+
+        padding: 70px 7%;
+    }
+
+    .intuit-content {
+        padding-left: 0;
+        margin-top: 60px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .help-section {
+        padding: 55px 25px;
+        gap: 60px;
+    }
+
+    .help-item h2,
+    .address-text h2 {
+        font-size: 30px;
+    }
+
+    .address-column img {
+        height: 250px;
+        border-radius: 12px;
+    }
+
+    .intuit-section {
+        padding: 55px 25px;
+    }
+
+    .intuit-brand h1 {
+        font-size: 50px;
+    }
+
+    .intuit-description p {
+        font-size: 22px;
+    }
+
+    .intuit-links {
+        flex-direction: column;
+        gap: 35px;
+    }
+}
