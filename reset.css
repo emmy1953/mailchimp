@@ -1,0 +1,346 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #241c15;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+    min-height: 100vh;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================
+   RESET PASSWORD CONTAINER
+========================= */
+
+.reset-container {
+    width: 430px;
+    margin-top: -30px;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+h1 {
+    font-size: 42px;
+    line-height: 1.08;
+
+    font-weight: 600;
+
+    color: #241c15;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.description {
+    font-size: 15px;
+
+    line-height: 1.55;
+
+    color: #555555;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   LABEL
+========================= */
+
+label {
+    display: block;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #555555;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================
+   USERNAME INPUT
+========================= */
+
+input[type="text"] {
+    width: 100%;
+
+    height: 55px;
+
+    padding: 0 15px;
+
+    font-size: 16px;
+
+    border: 1px solid #c8c8c8;
+
+    border-radius: 3px;
+
+    outline: none;
+
+    background: #ffffff;
+}
+
+
+/* Input focus */
+
+input[type="text"]:focus {
+    border-color: #007c89;
+
+    box-shadow: 0 0 0 1px #007c89;
+}
+
+
+/* =========================
+   BUTTON AREA
+========================= */
+
+.buttons {
+    display: flex;
+
+    align-items: center;
+
+    margin-top: 25px;
+
+    gap: 28px;
+}
+
+
+/* =========================
+   RESET BUTTON
+========================= */
+
+.reset-btn {
+    height: 55px;
+
+    padding: 0 30px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #007c89;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+/* Button hover */
+
+.reset-btn:hover {
+    background: #006b76;
+}
+
+
+/* =========================
+   RETURN TO LOGIN
+========================= */
+
+.login-link {
+    color: #007c89;
+
+    font-size: 15px;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   LANGUAGE
+========================= */
+
+.language {
+    position: absolute;
+
+    right: 35px;
+
+    top: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #555555;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.globe {
+    font-size: 15px;
+}
+
+.arrow {
+    font-size: 17px;
+}
+
+
+/* =========================
+   FEEDBACK
+========================= */
+
+.feedback {
+    position: fixed;
+
+    right: 0;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: #f1f1f1;
+
+    color: #777777;
+
+    padding: 12px 8px;
+
+    border-radius: 5px 0 0 5px;
+
+    font-size: 12px;
+
+    writing-mode: vertical-rl;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    position: absolute;
+
+    bottom: 18px;
+
+    left: 30px;
+
+    color: #999999;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    max-width: 600px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+    .page {
+        padding: 30px 25px;
+
+        align-items: flex-start;
+    }
+
+    .reset-container {
+        width: 100%;
+
+        max-width: 430px;
+
+        margin-top: 100px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .language {
+        top: 20px;
+
+        right: 20px;
+    }
+
+    .buttons {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+    }
+
+    footer {
+        position: relative;
+
+        left: auto;
+
+        bottom: auto;
+
+        margin-top: 80px;
+    }
+
+    .feedback {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .page {
+        min-height: 100vh;
+        min-height: 100svh;
+        padding: max(84px, calc(env(safe-area-inset-top) + 24px)) 20px 32px;
+    }
+
+    .reset-container {
+        margin-top: 0;
+    }
+
+    input[type="text"],
+    .reset-btn {
+        min-height: 48px;
+    }
+
+    footer {
+        max-width: 100%;
+        margin-top: 48px;
+    }
+}
